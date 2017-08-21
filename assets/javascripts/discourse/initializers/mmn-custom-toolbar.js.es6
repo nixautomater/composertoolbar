@@ -58,7 +58,7 @@ export default {
 
       a.onToolbarCreate(t => {
         t.addButton({
-          // trimLeading: true,
+          trimLeading: true,
           id: 'mmn-cct-dropdown',
           group: 'extras',
           label: 'composer.mmn_cct_dropdown_label',
