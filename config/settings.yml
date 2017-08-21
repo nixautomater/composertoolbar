@@ -1,0 +1,4 @@
+plugins:
+  enable_mmn_custom_composer_toolbar:
+    default: true
+    client: true
