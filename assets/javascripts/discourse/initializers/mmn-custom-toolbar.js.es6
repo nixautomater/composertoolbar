@@ -57,6 +57,7 @@ export default {
       });
 
       a.onToolbarCreate(t => {
+
         t.addButton({
           trimLeading: true,
           id: 'mmn-cct-dropdown',
@@ -65,7 +66,31 @@ export default {
           title: 'composer.mmn_cct_dropdown_title',
           action: 'toggleMmnPopup'
         });
+
+        t.addButton({
+          trimLeading: true,
+          id: 'mmn-cct-btn-html',
+          group: 'extras',
+          label: 'composer.mmn_cct_btn_html.label',
+          title: 'composer.mmn_cct_btn_html.title',
+          perform: function(e) {
+            e.applySurround('$', '$', 'mmn_cct_btn_html.text');
+          }
+        });
+
+        t.addButton({
+          trimLeading: true,
+          id: 'mmn-cct-btn-img',
+          group: 'extras',
+          label: 'composer.mmn_cct_btn_img.label',
+          title: 'composer.mmn_cct_btn_img.title',
+          perform: function(e) {
+            e.applySurround('$', '$', 'mmn_cct_btn_img.text');
+          }
+        });
+
       });
+
     });
   }
 }

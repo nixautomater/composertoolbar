@@ -1,7 +1,15 @@
 en:
   js:
     composer:
-      mmn_cct_dropdown_title: "alpha"
-      mmn_cct_dropdown_label: "&alpha;"
+      mmn_cct_dropdown_title: "show formulas"
+      mmn_cct_dropdown_label: '<img src="https://cdn2.iconfinder.com/data/icons/brainy-icons-science/120/0908-formula01-32.png" /> Show Formulas'
       mmn_cct_dropdown_buttons_theta: '\theta'
       mmn_cct_dropdown_buttons_phi: '\phi'
+      mmn_cct_btn_html:
+        title: "theta"
+        label: "&theta;"
+        text: '\theta'
+      mmn_cct_btn_img:
+        title: "theta"
+        label: "<img src="https://meta-s3-cdn.global.ssl.fastly.net/original/3X/2/9/2966f0706a45748410bd19d20122a324ca4d8d32.png" />"
+        text: '\theta'
