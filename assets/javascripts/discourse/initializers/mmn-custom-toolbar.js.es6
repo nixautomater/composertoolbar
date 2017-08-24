@@ -48,7 +48,7 @@ export default {
         },
         _applyFormula(button, text) {
           const sel       = this._getSelected();
-          const $textarea = this.$('textarea.d-editor-input');
+          const $textarea = $('textarea.d-editor-input');
 
 
           const tx        = (text || button.title);
