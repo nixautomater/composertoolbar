@@ -40,25 +40,28 @@ export default {
             }
           },
           applyFormula(button) {
-            const sel       = this._getSelected(button.trimLeading);
-            const $textarea = this.$('textarea.d-editor-input');
-
-            const text      = I18n.t(`composer.${button.code}`)
-
-            const insert    = `${sel.pre}$${text}$`;
-            const value     = `${insert}${sel.post}`;
-
-            this.set('value', value);
-            $textarea.val(value);
-            $textarea.prop("selectionStart", insert.length);
-            $textarea.prop("selectionEnd", insert.length);
-
-            Ember.run.scheduleOnce("afterRender", () => $textarea.focus());
+            this._applyFormula(button);
           }
         },
         buttonClicked(button) {
-          this.applyFormula(button);
+          this._applyFormula(button);
           $(`.${button.id}-popup`).addClass('hidden');
+        },
+        _applyFormula(button) {
+          const sel       = this._getSelected(button.trimLeading);
+          const $textarea = this.$('textarea.d-editor-input');
+
+          const text      = I18n.t(`composer.${button.code}`)
+
+          const insert    = `${sel.pre}$${text}$`;
+          const value     = `${insert}${sel.post}`;
+
+          this.set('value', value);
+          $textarea.val(value);
+          $textarea.prop("selectionStart", insert.length);
+          $textarea.prop("selectionEnd", insert.length);
+
+          Ember.run.scheduleOnce("afterRender", () => $textarea.focus());
         },
         popupPosition(button_id) {
           const bottom    = $('#reply-control .wmd-controls').height() + $('#reply-control .submit-panel').height() + 15;
