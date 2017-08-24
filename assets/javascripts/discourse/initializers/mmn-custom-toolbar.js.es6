@@ -27,7 +27,8 @@ export default {
                   'class': 'btn',
                   title: key,
                   click: function() {
-                    self.buttonClicked(button, key);
+                    button.code = `mmn_cct_dropdown_buttons_${key}`
+                    self.buttonClicked(button);
                   }
                 }));
                 list.append(btn);
@@ -37,11 +38,24 @@ export default {
               $('#reply-control').append(pop);
               pop.attr('style', this.popupPosition(button.id));
             }
+          },
+          applyFormula(button) {
+            const sel       = this._getSelected(button.trimLeading);
+            const $textarea = this.$('textarea.d-editor-input');
+
+            const insert    = `${sel.pre}$${button.code}$`;
+            const value     = `${insert}${sel.post}`;
+
+            this.set('value', value);
+            $textarea.val(value);
+            $textarea.prop("selectionStart", insert.length);
+            $textarea.prop("selectionEnd", insert.length);
+
+            Ember.run.scheduleOnce("afterRender", () => $textarea.focus());
           }
         },
-        buttonClicked(button, key) {
-          const selected = this._getSelected(button.trimLeading);
-          this._applySurround(selected, '$', '$', `mmn_cct_dropdown_buttons_${key}`, {});
+        buttonClicked(button) {
+          this.applyFormula(button);
           $(`.${button.id}-popup`).addClass('hidden');
         },
         popupPosition(button_id) {
@@ -73,9 +87,8 @@ export default {
           group: 'extras',
           label: 'composer.mmn_cct_btn_html.label',
           title: 'composer.mmn_cct_btn_html.title',
-          perform: function(e) {
-            e.applySurround('$', '$', 'mmn_cct_btn_html.text');
-          }
+          code: 'mmn_cct_btn_html.text',
+          action: 'applyFormula'
         });
 
         t.addButton({
@@ -84,9 +97,8 @@ export default {
           group: 'extras',
           label: 'composer.mmn_cct_btn_img.label',
           title: 'composer.mmn_cct_btn_img.title',
-          perform: function(e) {
-            e.applySurround('$', '$', 'mmn_cct_btn_img.text');
-          }
+          code: 'mmn_cct_btn_img.text',
+          action: 'applyFormula'
         });
 
       });
