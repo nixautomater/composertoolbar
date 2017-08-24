@@ -50,10 +50,7 @@ export default {
           const sel       = this._getSelected();
           const $textarea = $('textarea.d-editor-input');
 
-
-          const tx        = (text || button.title);
-
-          const insert    = `${sel.pre}$\\${tx}$`;
+          const insert    = `${sel.pre}$\\${text || button.title}$`;
           const value     = `${insert}${sel.post}`;
 
           console.log(insert.length);
