@@ -27,7 +27,7 @@ export default {
                   'class': 'btn',
                   title: key,
                   click: function() {
-                    self.buttonClicked(button);
+                    self.buttonClicked(button, key);
                   }
                 }));
                 list.append(btn);
@@ -42,15 +42,15 @@ export default {
             this._applyFormula(button);
           }
         },
-        buttonClicked(button) {
-          this._applyFormula(button);
+        buttonClicked(button, text) {
+          this._applyFormula(button, text);
           $(`.${button.id}-popup`).addClass('hidden');
         },
-        _applyFormula(button) {
+        _applyFormula(button, text) {
           const sel       = this._getSelected(button.trimLeading);
           const $textarea = this.$('textarea.d-editor-input');
 
-          const insert    = `${sel.pre}$\\${button.title}$`;
+          const insert    = `${sel.pre}$\\${text || button.title}$`;
           const value     = `${insert}${sel.post}`;
 
           this.set('value', value);
