@@ -27,7 +27,6 @@ export default {
                   'class': 'btn',
                   title: key,
                   click: function() {
-                    button.code = `mmn_cct_dropdown_buttons_${key}`
                     self.buttonClicked(button);
                   }
                 }));
@@ -51,9 +50,7 @@ export default {
           const sel       = this._getSelected(button.trimLeading);
           const $textarea = this.$('textarea.d-editor-input');
 
-          const text      = I18n.t(`composer.${button.code}`)
-
-          const insert    = `${sel.pre}$${text}$`;
+          const insert    = `${sel.pre}$\\${button.title}$`;
           const value     = `${insert}${sel.post}`;
 
           this.set('value', value);
@@ -92,7 +89,6 @@ export default {
           group: 'extras',
           label: 'composer.mmn_cct_btn_html.label',
           title: 'composer.mmn_cct_btn_html.title',
-          code: 'mmn_cct_btn_html.text',
           action: 'applyFormula'
         });
 
@@ -102,7 +98,6 @@ export default {
           group: 'extras',
           label: 'composer.mmn_cct_btn_img.label',
           title: 'composer.mmn_cct_btn_img.title',
-          code: 'mmn_cct_btn_img.text',
           action: 'applyFormula'
         });
 
