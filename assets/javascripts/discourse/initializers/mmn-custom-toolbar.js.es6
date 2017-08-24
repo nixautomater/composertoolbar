@@ -56,6 +56,8 @@ export default {
           const insert    = `${sel.pre}$\\${tx}$`;
           const value     = `${insert}${sel.post}`;
 
+          console.log(insert.length);
+
           this.set('value', value);
           $textarea.val(value);
           $textarea.prop("selectionStart", insert.length);
