@@ -50,7 +50,10 @@ export default {
           const sel       = this._getSelected(button.trimLeading);
           const $textarea = this.$('textarea.d-editor-input');
 
-          const insert    = `${sel.pre}$\\${text || button.title}$`;
+
+          const tx        = (text || button.title);
+
+          const insert    = `${sel.pre}$\\${tx}$`;
           const value     = `${insert}${sel.post}`;
 
           this.set('value', value);
