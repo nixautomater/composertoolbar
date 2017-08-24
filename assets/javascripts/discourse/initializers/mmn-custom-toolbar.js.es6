@@ -43,7 +43,9 @@ export default {
             const sel       = this._getSelected(button.trimLeading);
             const $textarea = this.$('textarea.d-editor-input');
 
-            const insert    = `${sel.pre}$${button.code}$`;
+            const text      = I18n.t(`composer.${button.code}`)
+
+            const insert    = `${sel.pre}$${text}$`;
             const value     = `${insert}${sel.post}`;
 
             this.set('value', value);
