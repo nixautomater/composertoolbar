@@ -60,10 +60,12 @@ export default {
 
           this.set('value', value);
           $textarea.val(value);
-          $textarea.prop("selectionStart", insert.length);
-          $textarea.prop("selectionEnd", insert.length);
 
-          Ember.run.scheduleOnce("afterRender", () => $textarea.focus());
+          Ember.run.scheduleOnce("afterRender", () => {
+            $textarea.prop("selectionStart", insert.length);
+            $textarea.prop("selectionEnd", insert.length);
+            $textarea.focus();
+          });
         },
         popupPosition(button_id) {
           const bottom    = $('#reply-control .wmd-controls').height() + $('#reply-control .submit-panel').height() + 15;
