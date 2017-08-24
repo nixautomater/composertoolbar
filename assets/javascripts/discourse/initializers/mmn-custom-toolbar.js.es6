@@ -47,7 +47,7 @@ export default {
           $(`.${button.id}-popup`).addClass('hidden');
         },
         _applyFormula(button, text) {
-          const sel       = this._getSelected(button.trimLeading);
+          const sel       = this._getSelected();
           const $textarea = this.$('textarea.d-editor-input');
 
 
