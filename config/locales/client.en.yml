@@ -6,10 +6,10 @@ en:
       mmn_cct_dropdown_buttons_theta: '\theta'
       mmn_cct_dropdown_buttons_phi: '\phi'
       mmn_cct_btn_html:
-        title: "thetaa"
+        title: "theta"
         label: "&theta;"
-        text: '\thetaa '
+        text: '\theta'
       mmn_cct_btn_img:
-        title: "thetaa"
+        title: "theta"
         label: '<img src="https://meta-s3-cdn.global.ssl.fastly.net/original/3X/2/9/2966f0706a45748410bd19d20122a324ca4d8d32.png" />'
-        text: '\thetaa '
+        text: '\theta'
